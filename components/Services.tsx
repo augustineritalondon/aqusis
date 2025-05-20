@@ -7,23 +7,23 @@ const Services = () => {
     {
       title:
         "Installing CCU, actuators in newly completed or worked over wells.",
-      image: "/istockphoto-1164814583-2048x2048.jpg",
+      image: "/images/WhatsApp Image 2025-05-20 at 09.22.40.jpeg",
       svg: tools(),
     },
     {
       title:
         "Installation and retrieval of BPV, TWCV during second line maintenance.",
-      image: "/istockphoto-1164814583-2048x2048.jpg",
+      image: "/images/WhatsApp Image 2025-05-20 at 09.22.43 (1).jpeg",
       svg: setting(),
     },
     {
       title: "Checking and pressure testing of TRCSSV SCSSSV, SSV AND SDV.",
-      image: "/istockphoto-1164814583-2048x2048.jpg",
+      image: "/images/WhatsApp Image 2025-05-20 at 09.22.41.jpeg",
       svg: checking(),
     },
     {
       title: "First line maintenance operations.",
-      image: "/istockphoto-1164814583-2048x2048.jpg",
+      image: "/images/WhatsApp Image 2025-05-20 at 09.22.41 (1).jpeg",
       svg: setting(),
     },
   ];

@@ -7,23 +7,23 @@ import { ArrowLeft, ArrowRight } from "iconsax-reactjs";
 const projects = [
   {
     name: "Installation of actuator and CCU panel at Omerelu",
-    image: "/istockphoto-1164814583-2048x2048.jpg",
+    image: "/images/WhatsApp Image 2025-05-20 at 09.22.42 (1).jpeg",
   },
   {
     name: "OML 26 Firstline maintenance operation ",
-    image: "/istockphoto-1164814583-2048x2048.jpg",
+    image: "/images/WhatsApp Image 2025-05-20 at 09.22.41 (1).jpeg",
   },
   {
     name: "Installation of CCU panel and commissioning @OML 26 Isoko Deep ",
-    image: "/istockphoto-1164814583-2048x2048.jpg",
+    image: "/images/WhatsApp Image 2025-05-20 at 09.22.42 (3).jpeg",
   },
   {
     name: "NDPR  - VR Plug/Gate Valve Installation",
-    image: "/istockphoto-1164814583-2048x2048.jpg",
+    image: "/images/WhatsApp Image 2025-05-20 at 09.22.43 (1).jpeg",
   },
   {
     name: "NDPR - Refurbishment Of Single String Xmas Tree",
-    image: "/istockphoto-1164814583-2048x2048.jpg",
+    image: "/images/WhatsApp Image 2025-05-20 at 09.22.42 (2).jpeg",
   },
 ];
 
@@ -87,7 +87,7 @@ const Projects = () => {
       <div className="w-full md:w-[80%] mx-auto flex items-center justify-between">
         <div>
           <h2 className="text-lg text-white">Our Featured Projects</h2>
-          <h1 className="text-3xl mb-5 text-white font-bold">
+          <h1 className="text-2xl md:text-3xl mb-5 text-white font-bold">
             Delivering Excellence Across Every Project
           </h1>
 
@@ -102,14 +102,22 @@ const Projects = () => {
             className="p-3 bg-transparent border border-[#F9A825] text-white rounded-full hover:bg-[#F9A825] transition"
             aria-label="Previous Project"
           >
-            <ArrowLeft size="32" color="#F9A825" />
+            <ArrowLeft
+              size="32"
+              color="#F9A825"
+              className="w-5 h-5 md:w-8 md:h-8"
+            />
           </button>
           <button
             onClick={nextProject}
             className="p-3 bg-[#F9A825] text-white rounded-full hover:bg-[#F9A825] transition"
             aria-label="Next Project"
           >
-            <ArrowRight size="32" color="#FFFFFF" />
+            <ArrowRight
+              size="32"
+              color="#FFFFFF"
+              className="w-5 h-5 md:w-8 md:h-8"
+            />
           </button>
         </div>
       </div>

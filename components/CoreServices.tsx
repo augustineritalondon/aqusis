@@ -1,13 +1,13 @@
 import React from "react";
-import Image from "next/image";
 import { Setting2 } from "iconsax-reactjs";
+import Image from "next/image";
 
 const CoreServices = () => {
   return (
     <section className="relative py-16 px-6 lg:px-20 bg-[#002651] text-center lg:h-[80vh] flex flex-col items-center justify-center ">
       <div className="absolute inset-0 overflow-hidden">
         <Image
-          src="/istockphoto-539829742-1024x1024.jpg"
+          src="/images/WhatsApp Image 2025-05-20 at 09.22.43.jpeg"
           alt="Hero"
           width={1000}
           height={1000}
@@ -41,7 +41,7 @@ const CoreServices = () => {
                   />
                   Nipping up and down of XMAS tree
                 </li>
-                <li className="flex  gap-4 shrink-0 my-3">
+                <li className="flex gap-4 shrink-0 my-3">
                   <Setting2
                     size="22"
                     color="#F9A825"

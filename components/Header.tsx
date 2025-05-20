@@ -1,6 +1,8 @@
 "use client";
 
+import { HamburgerMenu } from "iconsax-reactjs";
 import React, { useState, useEffect } from "react";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,9 +23,9 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full top-0 z-[150] transition-colors duration-300 ${
+      className={`!fixed w-full top-0 z-[150] transition-colors duration-300 ${
         scrolled ? "bg-white shadow-md" : "bg-transparent"
-      }`}
+      } min-h-[64px]`}
     >
       <div className="flex items-center justify-between py-4 w-[95%] md:w-[80%] mx-auto">
         <h1
@@ -71,14 +73,56 @@ const Header = () => {
         <button className="bg-[#F9A825] p-[.75rem] hidden md:block rounded-tl-2xl rounded-br-2xl rounded text-[#003366] px-4">
           Contact Us
         </button>
-        <button
-          className="md:hidden text-[#003366] focus:outline-none"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          ☰
-        </button>
+
+        <div className="md:hidden">
+          <Drawer>
+            <DrawerTrigger>
+              <button
+                className="md:hidden text-[#003366] focus:outline-none"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                <HamburgerMenu
+                  size="28"
+                  color="CurrentColor"
+                  className={`${scrolled ? "text-[#003366]" : "text-white"}`}
+                />
+              </button>
+            </DrawerTrigger>
+            <DrawerContent className="h-[80vh]">
+              <div className="md:hidden px-6 pb-4">
+                <a
+                  href="#"
+                  className="block py-2 hover:text-[#F9A825] font-medium"
+                >
+                  Home
+                </a>
+                <a
+                  href="#about"
+                  className="block py-2 hover:text-[#F9A825] font-medium"
+                >
+                  About
+                </a>
+                <a
+                  href="#services"
+                  className="block py-2 hover:text-[#F9A825] font-medium"
+                >
+                  Services
+                </a>
+                <a
+                  href="#projects"
+                  className="block py-2 hover:text-[#F9A825] font-medium"
+                >
+                  Projects
+                </a>
+                <button className="bg-[#F9A825] p-[.75rem] mt-5 rounded-tl-2xl rounded-br-2xl rounded text-[#003366] px-4">
+                  Contact Us
+                </button>
+              </div>
+            </DrawerContent>
+          </Drawer>
+        </div>
       </div>
-      {isMenuOpen && (
+      {/* {isMenuOpen && (
         <div className="md:hidden px-6 pb-4">
           <a href="#" className="block py-2 hover:text-[#F9A825] font-medium">
             Home
@@ -108,7 +152,7 @@ const Header = () => {
             Contact
           </a>
         </div>
-      )}
+      )} */}
     </header>
   );
 };

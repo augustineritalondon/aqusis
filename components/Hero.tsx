@@ -27,7 +27,7 @@ export default function Homepage() {
 
   return (
     <main className="font-sans text-[#2C3E50] bg-[#F5F5F5]">
-      <section className="relative h-[60vh] lg:h-[90vh] text-white py-20 px-4 md:py-24 text-left overflow-hidden flex items-center">
+      <section className="relative h-[60vh] lg:h-[90vh] text-white py-20 px-4 md:py-24 text-left overflow-hidden flex items-center bg-white">
         {/* Hero Image */}
         <div className="absolute inset-0">
           <Image
@@ -41,7 +41,7 @@ export default function Homepage() {
           />
         </div>
         {/* Overlay */}
-        <div className="absolute inset-0 bg-[#000000] opacity-80 z-10"></div>
+        <div className="absolute inset-0 bg-[#000000] opacity-75 z-10"></div>
         {/* Content */}
         <div className="relative z-20 w-full h-full flex flex-col items-start justify-center px-2 md:w-[80%] mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight text-left">
@@ -62,7 +62,7 @@ export default function Homepage() {
         </div>
         {/* Curved SVG at the bottom */}
         <svg
-          className="absolute bottom-0 left-0 w-full z-30"
+          className="absolute bottom-0 left-0 w-full z-30 border-b-0"
           viewBox="0 0 1440 150"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

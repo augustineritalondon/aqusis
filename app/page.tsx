@@ -3,14 +3,16 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import CoreServices from "@/components/CoreServices";
 import Services from "@/components/Services";
-import MaintenancePyramid from "@/components/MaintenancePyramid";
+// import MaintenancePyramid from "@/components/MaintenancePyramid";
 import WhatsNew from "@/components/WhatsNew";
 import Projects from "@/components/Projects";
-import OurClients from "@/components/OurClients";
+// import OurClients from "@/components/OurClients";
+import CTABanner from "@/components/CTABanner";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <Header />
       <Hero />
       <About />
@@ -18,8 +20,10 @@ export default function Home() {
       <Services />
       <WhatsNew />
       <Projects />
-      <OurClients />
-      <MaintenancePyramid />
+      {/* <OurClients /> */}
+      {/* <MaintenancePyramid /> */}
+      <CTABanner />
+      <Footer />
     </div>
   );
 }

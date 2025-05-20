@@ -21,11 +21,11 @@ const About = () => {
         </div>
         <div className="flex-1 flex items-center justify-center w-full md:w-[600px] overflow-hidden rounded rounded-tl-[8rem] rounded-br-[8rem]">
           <Image
-            src="/istockphoto-2215499990-1024x1024.jpg"
+            src="/images/WhatsApp Image 2025-05-20 at 09.22.42 (1).jpeg"
             alt="image"
             width={500}
             height={500}
-            className="object-cover object-center w-full  "
+            className="object-cover object-center w-full h-[26rem] "
           />
         </div>
       </section>

@@ -26,11 +26,11 @@ const WhatsNew = () => {
 
             <div>
               <Image
-                src="/istockphoto-1164814583-2048x2048.jpg"
+                src="/images/WhatsApp Image 2025-05-20 at 09.22.40 (2).jpeg"
                 alt="image"
                 width={1000}
                 height={1000}
-                className="object-cover object-center w-full  "
+                className="object-cover object-center w-full h-[16rem] "
               />
             </div>
           </div>
@@ -47,11 +47,11 @@ const WhatsNew = () => {
             </div>
             <div>
               <Image
-                src="/istockphoto-1164814583-2048x2048.jpg"
+                src="/images/WhatsApp Image 2025-05-20 at 09.22.43 (1).jpeg"
                 alt="image"
                 width={1000}
                 height={1000}
-                className="object-cover object-center w-full  "
+                className="object-cover object-center w-full h-[16rem] "
               />
             </div>
           </div>
@@ -68,11 +68,11 @@ const WhatsNew = () => {
             </div>
             <div>
               <Image
-                src="/istockphoto-1164814583-2048x2048.jpg"
+                src="/images/WhatsApp Image 2025-05-20 at 09.22.40.jpeg"
                 alt="image"
                 width={1000}
                 height={1000}
-                className="object-cover object-center w-full  "
+                className="object-cover object-center w-full h-[16rem] "
               />
             </div>
           </div>
