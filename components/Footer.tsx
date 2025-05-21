@@ -63,7 +63,7 @@ const Footer = () => {
           <ul>
             <li className="my-2">
               <a
-                href="info@aqusis.net"
+                href="mailto:info@aqusis.net"
                 className="hover:underline text-[#003366]"
               >
                 info@aqusis.net
@@ -74,7 +74,7 @@ const Footer = () => {
                 href="tel:+234XXXXXXXXXX"
                 className="hover:underline text-[#003366]"
               >
-                +234 803 376 1409
+                +(234) 803 376 1409
               </a>
             </li>
             <li className="my-2">

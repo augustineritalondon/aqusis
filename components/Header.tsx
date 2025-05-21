@@ -2,22 +2,49 @@
 
 import { HamburgerMenu } from "iconsax-reactjs";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
+// import { usePathname } from "next/navigation";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import { useRouter } from "next/navigation";
+
+const navLinks = [
+  { href: "/", label: "Home", section: "" },
+  { href: "/about", label: "About", section: "about" },
+  { href: "/services", label: "Services", section: "services" },
+  { href: "/projects", label: "Projects", section: "projects" },
+];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
+  // const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
-      // Adjust 80 to the height of your hero section if needed
       if (window.scrollY > 80) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
+
+      // Section detection for hash links
+      const sections = ["", "about", "services", "projects"];
+      let found = "";
+      for (const section of sections) {
+        const el = section ? document.getElementById(section) : document.body;
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 80) {
+            found = section;
+          }
+        }
+      }
+      setActiveSection(found);
     };
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -36,41 +63,24 @@ const Header = () => {
           Aqusis Energy
         </h1>
         <nav className="hidden md:flex space-x-6">
-          <a
-            href="#"
-            className={`hover:text-[#F9A825] font-medium ${
-              scrolled ? "text-[#2C3E50]" : "text-white"
-            }`}
-          >
-            Home
-          </a>
-          <a
-            href="#about"
-            className={`hover:text-[#F9A825] font-medium ${
-              scrolled ? "text-[#2C3E50]" : "text-white"
-            }`}
-          >
-            About
-          </a>
-          <a
-            href="#services"
-            className={`hover:text-[#F9A825] font-medium ${
-              scrolled ? "text-[#2C3E50]" : "text-white"
-            }`}
-          >
-            Services
-          </a>
-          <a
-            href="#projects"
-            className={`hover:text-[#F9A825] font-medium ${
-              scrolled ? "text-[#2C3E50]" : "text-white"
-            }`}
-          >
-            Projects
-          </a>
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              scroll={false}
+              className={`hover:text-[#F9A825] font-medium ${
+                scrolled ? "text-[#2C3E50]" : "text-white"
+              } ${activeSection === link.section ? "text-[#F9A825]" : ""}`}
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
-        <button className="bg-[#F9A825] p-[.75rem] hidden md:block rounded-tl-2xl rounded-br-2xl rounded text-[#003366] px-4">
+        <button
+          className="bg-[#F9A825] p-[.75rem] hidden cursor-pointer md:block rounded-tl-2xl rounded-br-2xl rounded text-[#003366] px-4"
+          onClick={() => router.push("/contact")}
+        >
           Contact Us
         </button>
 
@@ -90,31 +100,24 @@ const Header = () => {
             </DrawerTrigger>
             <DrawerContent className="h-[80vh]">
               <div className="md:hidden px-6 pb-4">
-                <a
-                  href="#"
-                  className="block py-2 hover:text-[#F9A825] font-medium"
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    scroll={false}
+                    className={`block py-2 hover:text-[#F9A825] font-medium ${
+                      activeSection === link.section
+                        ? "text-[#F9A825] underline"
+                        : ""
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                <button
+                  className="bg-[#F9A825] p-[.75rem] mt-5 cursor-pointer rounded-tl-2xl rounded-br-2xl rounded text-[#003366] px-4"
+                  onClick={() => router.push("/contact")}
                 >
-                  Home
-                </a>
-                <a
-                  href="#about"
-                  className="block py-2 hover:text-[#F9A825] font-medium"
-                >
-                  About
-                </a>
-                <a
-                  href="#services"
-                  className="block py-2 hover:text-[#F9A825] font-medium"
-                >
-                  Services
-                </a>
-                <a
-                  href="#projects"
-                  className="block py-2 hover:text-[#F9A825] font-medium"
-                >
-                  Projects
-                </a>
-                <button className="bg-[#F9A825] p-[.75rem] mt-5 rounded-tl-2xl rounded-br-2xl rounded text-[#003366] px-4">
                   Contact Us
                 </button>
               </div>
@@ -122,37 +125,6 @@ const Header = () => {
           </Drawer>
         </div>
       </div>
-      {/* {isMenuOpen && (
-        <div className="md:hidden px-6 pb-4">
-          <a href="#" className="block py-2 hover:text-[#F9A825] font-medium">
-            Home
-          </a>
-          <a
-            href="#about"
-            className="block py-2 hover:text-[#F9A825] font-medium"
-          >
-            About
-          </a>
-          <a
-            href="#services"
-            className="block py-2 hover:text-[#F9A825] font-medium"
-          >
-            Services
-          </a>
-          <a
-            href="#projects"
-            className="block py-2 hover:text-[#F9A825] font-medium"
-          >
-            Projects
-          </a>
-          <a
-            href="#contact"
-            className="block py-2 hover:text-[#F9A825] font-medium"
-          >
-            Contact
-          </a>
-        </div>
-      )} */}
     </header>
   );
 };

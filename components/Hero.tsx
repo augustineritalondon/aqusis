@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ArrowRight } from "iconsax-reactjs";
+import { useRouter } from "next/navigation";
 
 const images = [
   "/istockphoto-2215499990-1024x1024.jpg",
@@ -13,6 +14,7 @@ const images = [
 export default function Homepage() {
   const [current, setCurrent] = useState(0);
   const [fade, setFade] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -51,7 +53,10 @@ export default function Homepage() {
             Delivering excellence in wellhead & XMT maintenance and installation
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 items-start justify-center">
-            <button className="bg-[#F9A825] cursor-pointer flex items-center gap-2 rounded-tl-2xl rounded-br-2xl text-[#003366] px-6 py-3 font-semibold rounded shadow w-full sm:w-auto">
+            <button
+              className="bg-[#F9A825] cursor-pointer flex items-center gap-2 rounded-tl-2xl rounded-br-2xl text-[#003366] px-6 py-3 font-semibold rounded shadow w-full sm:w-auto"
+              onClick={() => router.push("/contact")}
+            >
               Get in Touch
               <ArrowRight size="20" color="#003366" />
             </button>

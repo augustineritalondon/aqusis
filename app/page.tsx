@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import CoreServices from "@/components/CoreServices";
@@ -8,12 +7,11 @@ import WhatsNew from "@/components/WhatsNew";
 import Projects from "@/components/Projects";
 // import OurClients from "@/components/OurClients";
 import CTABanner from "@/components/CTABanner";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <div className="overflow-hidden">
-      <Header />
+      {/* <Header /> */}
       <Hero />
       <About />
       <CoreServices />
@@ -23,7 +21,7 @@ export default function Home() {
       {/* <OurClients /> */}
       {/* <MaintenancePyramid /> */}
       <CTABanner />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -1,6 +1,11 @@
+"use client";
+
 import React from "react";
+import { useRouter } from "next/navigation";
 
 const CTABanner = () => {
+  const router = useRouter();
+
   return (
     <section
       className="relative p-8 md:p-12 w-[90%] md:w-[80%] lg:w-[60%] rounded-3xl mx-auto my-32 text-[#003366] text-center overflow-hidden"
@@ -16,7 +21,10 @@ const CTABanner = () => {
           Looking for a reliable wellhead <br className="hidden 2xl:block" />
           service partner?
         </h2>
-        <button className="mt-4 bg-white px-8 cursor-pointer py-3 rounded-tl-2xl rounded-br-2xl shadow font-semibold  transition">
+        <button
+          className="mt-4 bg-white px-8 cursor-pointer py-3 rounded-tl-2xl rounded-br-2xl shadow font-semibold  transition"
+          onClick={() => router.push("/contact")}
+        >
           Contact Us
         </button>
       </div>
