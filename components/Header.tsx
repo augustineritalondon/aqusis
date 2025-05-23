@@ -3,7 +3,7 @@
 import { HamburgerMenu } from "iconsax-reactjs";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-// import { usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { useRouter } from "next/navigation";
 
@@ -11,42 +11,32 @@ const navLinks = [
   { href: "/", label: "Home", section: "" },
   { href: "/about", label: "About", section: "about" },
   { href: "/services", label: "Services", section: "services" },
-  { href: "/projects", label: "Projects", section: "projects" },
+  // { href: "/projects", label: "Projects", section: "projects" },
 ];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
-  // const pathname = usePathname();
+  const pathname = usePathname();
   const router = useRouter();
 
   useEffect(() => {
+    // Set active section based on pathname
+    const current = navLinks.find((link) => link.href === pathname);
+    setActiveSection(current ? current.section : "");
+
     const handleScroll = () => {
       if (window.scrollY > 80) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
-
-      // Section detection for hash links
-      const sections = ["", "about", "services", "projects"];
-      let found = "";
-      for (const section of sections) {
-        const el = section ? document.getElementById(section) : document.body;
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 80) {
-            found = section;
-          }
-        }
-      }
-      setActiveSection(found);
     };
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   return (
     <header

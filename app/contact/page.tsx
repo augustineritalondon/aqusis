@@ -1,8 +1,27 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import { Sms, Call, Location } from "iconsax-reactjs";
+import { useForm, ValidationError } from "@formspree/react";
+import { toast } from "sonner";
 
 const ContactPage = () => {
+  const [state, handleSubmit] = useForm("xvgandje");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  // Clear form after successful submission
+  React.useEffect(() => {
+    if (state.succeeded) {
+      setFormData({ name: "", email: "", message: "" });
+      toast("Message submitted successfully!");
+    }
+  }, [state.succeeded]);
+
   return (
     <div>
       {/* Hero Banner */}
@@ -27,38 +46,63 @@ const ContactPage = () => {
 
         {/* Contact Details & Form */}
         <div className="py-10 px-5 max-w-xl mx-auto flex-1 flex flex-col justify-center text-center">
-          {/* <h2 className="text-3xl font-bold text-[#003666] mb-5">
-            Get in Touch
-          </h2> */}
+          {/* Success message */}
 
           {/* Contact Form */}
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={handleSubmit}>
             <input
               type="text"
               name="name"
+              id="name"
               placeholder="Your Name"
               className="w-full border border-gray-300 rounded-lg px-4 py-2"
               required
+              value={formData.name}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
             />
+            <ValidationError prefix="Name" field="name" errors={state.errors} />
             <input
               type="email"
               name="email"
               placeholder="Your Email"
+              id="email"
               className="w-full border border-gray-300 rounded-lg px-4 py-2"
               required
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+            />
+            <ValidationError
+              prefix="Email"
+              field="email"
+              errors={state.errors}
             />
             <textarea
               name="message"
+              id="message"
               placeholder="Your Message"
               className="w-full border border-gray-300 rounded-lg px-4 py-2"
               rows={4}
               required
+              value={formData.message}
+              onChange={(e) =>
+                setFormData({ ...formData, message: e.target.value })
+              }
+            />
+            <ValidationError
+              prefix="Message"
+              field="message"
+              errors={state.errors}
             />
             <button
               type="submit"
-              className="w-full bg-[#003366] text-white font-semibold py-2 rounded-tl-2xl rounded-br-2xl hover:bg-blue-800 transition"
+              disabled={state.submitting}
+              className="w-full bg-[#003366] cursor-pointer text-white font-semibold py-2 rounded-tl-2xl rounded-br-2xl  transition"
             >
-              Send Message
+              {state.submitting ? "Loading..." : "Send Message"}
             </button>
           </form>
 

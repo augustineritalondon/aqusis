@@ -8,7 +8,7 @@ const CTABanner = () => {
 
   return (
     <section
-      className="relative p-8 md:p-12 w-[90%] md:w-[80%] lg:w-[60%] rounded-3xl mx-auto my-32 text-[#003366] text-center overflow-hidden"
+      className="relative p-8 md:p-12 w-[90%] md:w-[80%] lg:w-[60%] rounded-3xl mx-auto my-16 md:my-32 text-[#003366] text-center overflow-hidden"
       style={{
         background:
           "radial-gradient(circle at 50% 0%, #FFD54F 40%, #F9A825 100%)",
